@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Outreach por Email</title>
+<style>
+  :root{--bg:#0a0a0a;--card:#141414;--line:#262626;--txt:#ededed;--mut:#8a8a8a;--cyan:#00F5D4;--wa:#25D366;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,Segoe UI,sans-serif;padding:24px}
+  header{max-width:1100px;margin:0 auto 16px}
+  h1{margin:0 0 4px;font-size:22px}h1 span{color:var(--cyan)}
+  .sub{color:var(--mut);font-size:14px}
+  .nav{max-width:1100px;margin:0 auto 14px;display:flex;gap:8px}
+  .nav a{color:var(--mut);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:8px;font-size:13px}
+  .nav a.on{color:var(--cyan);border-color:var(--cyan)}
+  .bar{max-width:1100px;margin:0 auto 18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  input{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);color:var(--txt);padding:9px 12px;border-radius:8px}
+  .count{color:var(--mut);font-size:13px;margin-left:auto}.count b{color:var(--cyan)}
+  .grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .card.is-done{opacity:.4}
+  .head{display:flex;justify-content:space-between;align-items:center}
+  .badge{font-size:11px;padding:3px 9px;border-radius:99px;font-weight:600}
+  .badge.mail{background:#1d2e3a;color:#9bd2ff}.badge.wa{background:#16301f;color:#9be6b4}
+  .done{background:none;border:1px solid var(--line);color:var(--mut);font-size:12px;padding:3px 10px;border-radius:7px;cursor:pointer}
+  .dl{background:var(--card);border:1px solid var(--cyan);color:var(--cyan);padding:9px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600}
+  .dl:hover{background:var(--cyan);color:#04211e}
+  h2{margin:0;font-size:17px}.meta{margin:0;color:var(--mut);font-size:13px;word-break:break-all}
+  input.su{width:100%;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px;font-size:13px}
+  textarea{width:100%;min-height:120px;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:10px;font:13px/1.5 inherit;resize:vertical}
+  .send{display:block;text-align:center;font-weight:700;text-decoration:none;padding:11px;border-radius:9px}
+  .send.mail{background:var(--cyan);color:#04211e}.send.wa{background:var(--wa);color:#04210f}
+  .send:hover{filter:brightness(1.08)}
+</style></head><body>
+<header><h1><span>Clyra</span> · Outreach por Email</h1>
+<p class="sub">Marcá "Enviado" a medida que mandás. Al terminar, tocá "Descargar contactados" y dejá ese archivo en la carpeta: en la próxima corrida no vuelven a aparecer.</p></header>
+<div class="nav"><a href="emails.html" class="on">📧 Email</a><a href="whatsapp.html" class="">💬 WhatsApp</a></div>
+<div class="bar"><input id="q" placeholder="Buscar por nombre..." oninput="filtrar()">
+<button class="dl" onclick="descargar()">⬇ Descargar contactados</button>
+<span class="count"><b id="done">0</b> / 29 enviados</span></div>
+<div class="grid">
+  <article class="card" data-name="plateas punilla" data-key="plateaspunillaconstrucciones@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Plateas Punilla</h2><p class="meta">plateaspunillaconstrucciones@gmail.com</p>
+    <input class="su" value="Una idea para la web de Plateas Punilla">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Plateas Punilla y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=plateaspunillaconstrucciones%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20Plateas%20Punilla&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Plateas%20Punilla%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="montecons desarrollistas" data-key="ventas@montecons.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Montecons Desarrollistas</h2><p class="meta">ventas@montecons.com.ar</p>
+    <input class="su" value="Una idea para la web de Montecons Desarrollistas">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Montecons Desarrollistas y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ventas%40montecons.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Montecons%20Desarrollistas&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Montecons%20Desarrollistas%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="tlc pavimento y hormigón" data-key="tlcpavimentoyhormigon@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>TLC Pavimento y Hormigón</h2><p class="meta">tlcpavimentoyhormigon@gmail.com</p>
+    <input class="su" value="Una idea para la web de TLC Pavimento y Hormigón">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de TLC Pavimento y Hormigón y como obra civil se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras y servicios conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=tlcpavimentoyhormigon%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20TLC%20Pavimento%20y%20Hormig%C3%B3n&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20TLC%20Pavimento%20y%20Hormig%C3%B3n%20y%20como%20obra%20civil%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20y%20servicios%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="vecta constructora" data-key="info@vectaconstructora.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Vecta Constructora</h2><p class="meta">info@vectaconstructora.com</p>
+    <input class="su" value="Una idea para la web de Vecta Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Vecta Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40vectaconstructora.com&amp;su=Una%20idea%20para%20la%20web%20de%20Vecta%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Vecta%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="grupo mac constructora" data-key="info@grupomacconstructora.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Grupo Mac Constructora</h2><p class="meta">info@grupomacconstructora.com</p>
+    <input class="su" value="Una idea para la web de Grupo Mac Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Grupo Mac Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40grupomacconstructora.com&amp;su=Una%20idea%20para%20la%20web%20de%20Grupo%20Mac%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Grupo%20Mac%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="grupo kreos constructora" data-key="grupokreosconstructora@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Grupo Kreos Constructora</h2><p class="meta">grupokreosconstructora@gmail.com</p>
+    <input class="su" value="Una idea para la web de Grupo Kreos Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Grupo Kreos Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=grupokreosconstructora%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20Grupo%20Kreos%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Grupo%20Kreos%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="abregu constructora" data-key="ventas@abreguconstructora.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Abregu Constructora</h2><p class="meta">ventas@abreguconstructora.com.ar</p>
+    <input class="su" value="Una idea para la web de Abregu Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Abregu Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ventas%40abreguconstructora.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Abregu%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Abregu%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="aclade s.r.l. – empresa constructora" data-key="aclade@acladesrl.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Aclade S.R.L. – Empresa Constructora</h2><p class="meta">aclade@acladesrl.com.ar</p>
+    <input class="su" value="Una idea para la web de Aclade S.R.L. – Empresa Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Aclade S.R.L. – Empresa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=aclade%40acladesrl.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Aclade%20S.R.L.%20%E2%80%93%20Empresa%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Aclade%20S.R.L.%20%E2%80%93%20Empresa%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="empresa constructora en córdoba" data-key="empresadeconstruccioncordoba@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Empresa Constructora en Córdoba</h2><p class="meta">empresadeconstruccioncordoba@gmail.com</p>
+    <input class="su" value="Una idea para la web de Empresa Constructora en Córdoba">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Empresa Constructora en Córdoba y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=empresadeconstruccioncordoba%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20Empresa%20Constructora%20en%20C%C3%B3rdoba&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Empresa%20Constructora%20en%20C%C3%B3rdoba%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="rode" data-key="ventas@rode.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>RODE</h2><p class="meta">ventas@rode.com.ar</p>
+    <input class="su" value="Una idea para la web de RODE">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de RODE y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ventas%40rode.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20RODE&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20RODE%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="eleven" data-key="info@elevendesarrollos.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Eleven</h2><p class="meta">info@elevendesarrollos.com.ar</p>
+    <input class="su" value="Una idea para la web de Eleven">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Eleven y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40elevendesarrollos.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Eleven&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Eleven%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="busleiman herrería y construcción" data-key="info@estructurasbusleiman.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Busleiman Herrería y Construcción</h2><p class="meta">info@estructurasbusleiman.com.ar</p>
+    <input class="su" value="Una idea para la web de Busleiman Herrería y Construcción">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Busleiman Herrería y Construcción y como herrería y estructuras se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus trabajos terminados conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40estructurasbusleiman.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Busleiman%20Herrer%C3%ADa%20y%20Construcci%C3%B3n&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Busleiman%20Herrer%C3%ADa%20y%20Construcci%C3%B3n%20y%20como%20herrer%C3%ADa%20y%20estructuras%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20trabajos%20terminados%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="piscinas psi" data-key="psi-cordoba@outlook.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Piscinas PSI</h2><p class="meta">psi-cordoba@outlook.com</p>
+    <input class="su" value="Una idea para la web de Piscinas PSI">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Piscinas PSI y como piscinas se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus piscinas con fotos que vendan conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=psi-cordoba%40outlook.com&amp;su=Una%20idea%20para%20la%20web%20de%20Piscinas%20PSI&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Piscinas%20PSI%20y%20como%20piscinas%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20piscinas%20con%20fotos%20que%20vendan%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="ct&amp;a constructora" data-key="ctyaconstructoracomercial@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>CT&amp;A Constructora</h2><p class="meta">ctyaconstructoracomercial@gmail.com</p>
+    <input class="su" value="Una idea para la web de CT&amp;A Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de CT&amp;A Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ctyaconstructoracomercial%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20CT%26A%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20CT%26A%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="coemsa constructora steel framing" data-key="info@coemsa.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Coemsa Constructora Steel Framing</h2><p class="meta">info@coemsa.com.ar</p>
+    <input class="su" value="Una idea para la web de Coemsa Constructora Steel Framing">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Coemsa Constructora Steel Framing y como herrería y estructuras se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus trabajos terminados conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40coemsa.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Coemsa%20Constructora%20Steel%20Framing&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Coemsa%20Constructora%20Steel%20Framing%20y%20como%20herrer%C3%ADa%20y%20estructuras%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20trabajos%20terminados%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="constructora la casa mía" data-key="info@lacasamia.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora La Casa Mía</h2><p class="meta">info@lacasamia.com.ar</p>
+    <input class="su" value="Una idea para la web de Constructora La Casa Mía">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Constructora La Casa Mía y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40lacasamia.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Constructora%20La%20Casa%20M%C3%ADa&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Constructora%20La%20Casa%20M%C3%ADa%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="m100 emprendimientos inmobiliarios" data-key="xuumtoken@m100emprendimientos.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>M100 Emprendimientos Inmobiliarios</h2><p class="meta">xuumtoken@m100emprendimientos.com.ar</p>
+    <input class="su" value="Una idea para la web de M100 Emprendimientos Inmobiliarios">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de M100 Emprendimientos Inmobiliarios y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=xuumtoken%40m100emprendimientos.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20M100%20Emprendimientos%20Inmobiliarios&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20M100%20Emprendimientos%20Inmobiliarios%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="edifica constructora/inmobiliaria" data-key="luisaamaya@edificaconstructorainmobiliaria.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Edifica Constructora/Inmobiliaria</h2><p class="meta">luisaamaya@edificaconstructorainmobiliaria.com</p>
+    <input class="su" value="Una idea para la web de Edifica Constructora/Inmobiliaria">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Edifica Constructora/Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=luisaamaya%40edificaconstructorainmobiliaria.com&amp;su=Una%20idea%20para%20la%20web%20de%20Edifica%20Constructora/Inmobiliaria&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Edifica%20Constructora/Inmobiliaria%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="gut constructora inmobiliaria" data-key="info@gutconstructora.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>GUT Constructora Inmobiliaria</h2><p class="meta">info@gutconstructora.com.ar</p>
+    <input class="su" value="Una idea para la web de GUT Constructora Inmobiliaria">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de GUT Constructora Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40gutconstructora.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20GUT%20Constructora%20Inmobiliaria&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20GUT%20Constructora%20Inmobiliaria%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="fit constructora" data-key="info@fitconstructora.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Fit Constructora</h2><p class="meta">info@fitconstructora.com.ar</p>
+    <input class="su" value="Una idea para la web de Fit Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Fit Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40fitconstructora.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Fit%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Fit%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="item construcciones sa" data-key="itemsa@itemsa.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Item Construcciones Sa</h2><p class="meta">itemsa@itemsa.com.ar</p>
+    <input class="su" value="Una idea para la web de Item Construcciones Sa">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Item Construcciones Sa y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=itemsa%40itemsa.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Item%20Construcciones%20Sa&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Item%20Construcciones%20Sa%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="vc inmobiliaria" data-key="info@inmobiliariavc.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>VC Inmobiliaria</h2><p class="meta">info@inmobiliariavc.com.ar</p>
+    <input class="su" value="Una idea para la web de VC Inmobiliaria">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de VC Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40inmobiliariavc.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20VC%20Inmobiliaria&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20VC%20Inmobiliaria%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="empresa constructora base srl" data-key="info@empresaconstructorabase.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Empresa Constructora Base SRL</h2><p class="meta">info@empresaconstructorabase.com</p>
+    <input class="su" value="Una idea para la web de Empresa Constructora Base SRL">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Empresa Constructora Base SRL y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40empresaconstructorabase.com&amp;su=Una%20idea%20para%20la%20web%20de%20Empresa%20Constructora%20Base%20SRL&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Empresa%20Constructora%20Base%20SRL%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="marassa construcciones" data-key="info@marassaconstrucciones.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Marassa Construcciones</h2><p class="meta">info@marassaconstrucciones.com.ar</p>
+    <input class="su" value="Una idea para la web de Marassa Construcciones">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Marassa Construcciones y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40marassaconstrucciones.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Marassa%20Construcciones&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Marassa%20Construcciones%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="sapyc s.r.l." data-key="sapyc@sapyc.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Sapyc S.R.L.</h2><p class="meta">sapyc@sapyc.com</p>
+    <input class="su" value="Una idea para la web de Sapyc S.R.L.">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Sapyc S.R.L. y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sapyc%40sapyc.com&amp;su=Una%20idea%20para%20la%20web%20de%20Sapyc%20S.R.L.&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Sapyc%20S.R.L.%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="pucheta construcciones" data-key="empresa@puchetaconstrucciones.com.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Pucheta Construcciones</h2><p class="meta">empresa@puchetaconstrucciones.com.ar</p>
+    <input class="su" value="Una idea para la web de Pucheta Construcciones">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Pucheta Construcciones y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=empresa%40puchetaconstrucciones.com.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Pucheta%20Construcciones&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Pucheta%20Construcciones%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="corobra empresa constructora" data-key="corobrasrl@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>COROBRA Empresa Constructora</h2><p class="meta">corobrasrl@gmail.com</p>
+    <input class="su" value="Una idea para la web de COROBRA Empresa Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de COROBRA Empresa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=corobrasrl%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20COROBRA%20Empresa%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20COROBRA%20Empresa%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="casaclick inmobiliaria y constructora" data-key="inmobiliariacasaclick@gmail.com">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>CasaClick Inmobiliaria y Constructora</h2><p class="meta">inmobiliariacasaclick@gmail.com</p>
+    <input class="su" value="Una idea para la web de CasaClick Inmobiliaria y Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de CasaClick Inmobiliaria y Constructora y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=inmobiliariacasaclick%40gmail.com&amp;su=Una%20idea%20para%20la%20web%20de%20CasaClick%20Inmobiliaria%20y%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20CasaClick%20Inmobiliaria%20y%20Constructora%20y%20como%20desarrollos%20inmobiliarios%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20unidades%20y%20emprendimientos%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article>
+  <article class="card" data-name="embesa constructora" data-key="info@embesa.ar">
+    <div class="head"><span class="badge mail">Email</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Embesa Constructora</h2><p class="meta">info@embesa.ar</p>
+    <input class="su" value="Una idea para la web de Embesa Constructora">
+    <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
+
+Entré a la web de Embesa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+
+¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+
+Saludos,
+Jano Maciel
+Clyra Studio — Desarrollo web
+janomaciel1@gmail.com</textarea>
+    <a class="send mail" target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40embesa.ar&amp;su=Una%20idea%20para%20la%20web%20de%20Embesa%20Constructora&amp;body=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Soy%20Jano%20Maciel%2C%20de%20Clyra%20Studio.%0A%0AEntr%C3%A9%20a%20la%20web%20de%20Embesa%20Constructora%20y%20como%20constructora%20se%20nota%20que%20ya%20invirtieron%20en%20presencia.%20Tengo%20un%20par%20de%20ideas%20concretas%20para%20que%20tus%20obras%20terminadas%20conviertan%20m%C3%A1s%20consultas%20%28velocidad%2C%20claridad%20de%20la%20oferta%20y%20captaci%C3%B3n%20de%20leads%29.%0A%0A%C2%BFTe%20interesa%20que%20te%20las%20pase%20en%20un%20mensaje%20corto%2C%20sin%20compromiso%3F%0A%0ASaludos%2C%0AJano%20Maciel%0AClyra%20Studio%20%E2%80%94%20Desarrollo%20web%0Ajanomaciel1%40gmail.com">Abrir en Gmail</a>
+  </article></div><script>window.PREV=[];</script><script>
+  var LS='clyra_enviados';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){return[]}}
+  function save(a){try{localStorage.setItem(LS,JSON.stringify(a))}catch(e){}}
+  function recount(){document.getElementById('done').textContent=document.querySelectorAll('.card.is-done').length;}
+  function toggleDone(b){var c=b.closest('.card');c.classList.toggle('is-done');
+    var on=c.classList.contains('is-done');b.textContent=on?'Deshacer':'Enviado';
+    var k=c.dataset.key,a=load();var i=a.indexOf(k);
+    if(on&&i<0)a.push(k);if(!on&&i>=0)a.splice(i,1);save(a);recount();}
+  function filtrar(){var q=document.getElementById('q').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(function(c){c.style.display=c.dataset.name.includes(q)?'':'none';});}
+  function descargar(){
+    var prev=window.PREV||[];var s={};prev.forEach(function(k){s[k]=1});
+    document.querySelectorAll('.card.is-done').forEach(function(c){s[c.dataset.key]=1});
+    var csv='key\n'+Object.keys(s).join('\n')+'\n';
+    var b=new Blob([csv],{type:'text/csv'});var u=URL.createObjectURL(b);
+    var a=document.createElement('a');a.href=u;a.download='contactados.csv';a.click();URL.revokeObjectURL(u);}
+  window.addEventListener('load',function(){
+    var a=load();document.querySelectorAll('.card').forEach(function(c){
+      if(a.indexOf(c.dataset.key)>=0){c.classList.add('is-done');
+        var b=c.querySelector('.done');if(b)b.textContent='Deshacer';}});
+    recount();});
+</script></body></html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Outreach por WhatsApp</title>
+<style>
+  :root{--bg:#0a0a0a;--card:#141414;--line:#262626;--txt:#ededed;--mut:#8a8a8a;--cyan:#00F5D4;--wa:#25D366;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,Segoe UI,sans-serif;padding:24px}
+  header{max-width:1100px;margin:0 auto 16px}
+  h1{margin:0 0 4px;font-size:22px}h1 span{color:var(--cyan)}
+  .sub{color:var(--mut);font-size:14px}
+  .nav{max-width:1100px;margin:0 auto 14px;display:flex;gap:8px}
+  .nav a{color:var(--mut);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:8px;font-size:13px}
+  .nav a.on{color:var(--cyan);border-color:var(--cyan)}
+  .bar{max-width:1100px;margin:0 auto 18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  input{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);color:var(--txt);padding:9px 12px;border-radius:8px}
+  .count{color:var(--mut);font-size:13px;margin-left:auto}.count b{color:var(--cyan)}
+  .grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .card.is-done{opacity:.4}
+  .head{display:flex;justify-content:space-between;align-items:center}
+  .badge{font-size:11px;padding:3px 9px;border-radius:99px;font-weight:600}
+  .badge.mail{background:#1d2e3a;color:#9bd2ff}.badge.wa{background:#16301f;color:#9be6b4}
+  .done{background:none;border:1px solid var(--line);color:var(--mut);font-size:12px;padding:3px 10px;border-radius:7px;cursor:pointer}
+  .dl{background:var(--card);border:1px solid var(--cyan);color:var(--cyan);padding:9px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600}
+  .dl:hover{background:var(--cyan);color:#04211e}
+  h2{margin:0;font-size:17px}.meta{margin:0;color:var(--mut);font-size:13px;word-break:break-all}
+  input.su{width:100%;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px;font-size:13px}
+  textarea{width:100%;min-height:120px;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:10px;font:13px/1.5 inherit;resize:vertical}
+  .send{display:block;text-align:center;font-weight:700;text-decoration:none;padding:11px;border-radius:9px}
+  .send.mail{background:var(--cyan);color:#04211e}.send.wa{background:var(--wa);color:#04210f}
+  .send:hover{filter:brightness(1.08)}
+</style></head><body>
+<header><h1><span>Clyra</span> · Outreach por WhatsApp</h1>
+<p class="sub">Marcá "Enviado" a medida que mandás. Al terminar, tocá "Descargar contactados" y dejá ese archivo en la carpeta: en la próxima corrida no vuelven a aparecer.</p></header>
+<div class="nav"><a href="emails.html" class="">📧 Email</a><a href="whatsapp.html" class="on">💬 WhatsApp</a></div>
+<div class="bar"><input id="q" placeholder="Buscar por nombre..." oninput="filtrar()">
+<button class="dl" onclick="descargar()">⬇ Descargar contactados</button>
+<span class="count"><b id="done">0</b> / 71 enviados</span></div>
+<div class="grid">
+  <article class="card" data-name="dym" data-key="03541230501">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>DYM</h2><p class="meta">Cosquín · 03541 23-0501</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a DYM en Google pero no encontré una web propia. Para constructora en Cosquín, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541230501?text="
+       onclick="this.href='https://wa.me/5493541230501?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora alpi" data-key="03541219840">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Alpi</h2><p class="meta">Cosquín · 03541 21-9840</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Constructora Alpi y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Cosquín es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541219840?text="
+       onclick="this.href='https://wa.me/5493541219840?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="dohouse desarrollos inmobiliarios" data-key="03516845712">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>doHouse Desarrollos Inmobiliarios</h2><p class="meta">Cosquín · 0351 684-5712</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a doHouse Desarrollos Inmobiliarios en Google pero no encontré una web propia. Para desarrollos inmobiliarios en Cosquín, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus unidades y emprendimientos, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516845712?text="
+       onclick="this.href='https://wa.me/5493516845712?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="terranova.ventas.cordoba" data-key="03541675919">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>TerraNova.Ventas.Cordoba</h2><p class="meta">Cosquín · 03541 67-5919</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a TerraNova.Ventas.Cordoba en Google pero no encontré una web propia. Para constructora en Cosquín, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541675919?text="
+       onclick="this.href='https://wa.me/5493541675919?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="movex" data-key="03541525882">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>MOVEX</h2><p class="meta">Santa María de Punilla · 03541 52-5882</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de MOVEX y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Santa María de Punilla es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541525882?text="
+       onclick="this.href='https://wa.me/5493541525882?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="proinge servicios y construcciones" data-key="03514665868">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>PROingE servicios y construcciones</h2><p class="meta">centro · 0351 466-5868</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a PROingE servicios y construcciones en Google pero no encontré una web propia. Para constructora en centro, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514665868?text="
+       onclick="this.href='https://wa.me/5493514665868?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="molienda de aridos cosquín" data-key="03541450271">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Molienda de Aridos Cosquín</h2><p class="meta">Cosquín · 03541 45-0271</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de Molienda de Aridos Cosquín y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para obra civil en Cosquín es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras y servicios? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541450271?text="
+       onclick="this.href='https://wa.me/5493541450271?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="serv &amp; rep" data-key="03541590980">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Serv &amp; Rep</h2><p class="meta">Cosquín · 03541 59-0980</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Serv &amp; Rep en Google pero no encontré una web propia. Para constructora en Cosquín, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541590980?text="
+       onclick="this.href='https://wa.me/5493541590980?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="estudio de arquitectura mariel alvarez murias" data-key="03541615392">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Estudio de Arquitectura Mariel Alvarez Murias</h2><p class="meta">Cosquín · 03541 61-5392</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Estudio de Arquitectura Mariel Alvarez Murias en Google pero no encontré una web propia. Para estudio de arquitectura en Cosquín, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus proyectos, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541615392?text="
+       onclick="this.href='https://wa.me/5493541615392?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="grupo family" data-key="03541618639">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Grupo Family</h2><p class="meta">Santa María de Punilla · 03541 61-8639</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Grupo Family en Google pero no encontré una web propia. Para constructora en Santa María de Punilla, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541618639?text="
+       onclick="this.href='https://wa.me/5493541618639?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="pampa construcciones" data-key="03541332149">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Pampa construcciones</h2><p class="meta">Bialet Massé · 03541 33-2149</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Pampa construcciones en Google pero no encontré una web propia. Para constructora en Bialet Massé, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541332149?text="
+       onclick="this.href='https://wa.me/5493541332149?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="ace soluciones edilicias" data-key="03512115846">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Ace soluciones edilicias</h2><p class="meta">tu zona · 0351 211-5846</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Ace soluciones edilicias y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en tu zona es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493512115846?text="
+       onclick="this.href='https://wa.me/5493512115846?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="nugal inmobiliaria" data-key="03541685277">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Nugal Inmobiliaria</h2><p class="meta">Cosquín · 03541 68-5277</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Nugal Inmobiliaria y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para desarrollos inmobiliarios en Cosquín es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus unidades y emprendimientos? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541685277?text="
+       onclick="this.href='https://wa.me/5493541685277?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="john construcciones" data-key="01127902762">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>John Construcciones</h2><p class="meta">Bialet Massé · 011 2790-2762</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a John Construcciones en Google pero no encontré una web propia. Para constructora en Bialet Massé, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5491127902762?text="
+       onclick="this.href='https://wa.me/5491127902762?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="construcciones punilla" data-key="03415905090">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Construcciones punilla</h2><p class="meta">Tanti · 0341 590-5090</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Construcciones punilla y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Tanti es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493415905090?text="
+       onclick="this.href='https://wa.me/5493415905090?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="jgr construcciones" data-key="01130446623">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>JGR Construcciones</h2><p class="meta">Tanti · 011 3044-6623</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a JGR Construcciones en Google pero no encontré una web propia. Para constructora en Tanti, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5491130446623?text="
+       onclick="this.href='https://wa.me/5491130446623?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="urbicor construcciones" data-key="03513514732">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>URBICOR Construcciones</h2><p class="meta">Córdoba · 0351 351-4732</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a URBICOR Construcciones en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513514732?text="
+       onclick="this.href='https://wa.me/5493513514732?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora marcsuar" data-key="03541631930">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora MarcSuar</h2><p class="meta">Villa Carlos Paz · 03541 63-1930</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora MarcSuar en Google pero no encontré una web propia. Para constructora en Villa Carlos Paz, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541631930?text="
+       onclick="this.href='https://wa.me/5493541631930?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="rbl constructora s.a.s" data-key="03543694904">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>RBL CONSTRUCTORA S.A.S</h2><p class="meta">RUTA E - 53 Entre San Juan · 03543 69-4904</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a RBL CONSTRUCTORA S.A.S en Google pero no encontré una web propia. Para constructora en RUTA E - 53 Entre San Juan, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493543694904?text="
+       onclick="this.href='https://wa.me/5493543694904?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="tecons s.a. i empresa constructora" data-key="03515833265">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Tecons S.A. I Empresa Constructora</h2><p class="meta">La Calera · 0351 583-3265</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Tecons S.A. I Empresa Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515833265?text="
+       onclick="this.href='https://wa.me/5493515833265?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="inovarte construcciones." data-key="03516327905">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Inovarte Construcciones.</h2><p class="meta">Córdoba · 0351 632-7905</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Inovarte Construcciones. y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516327905?text="
+       onclick="this.href='https://wa.me/5493516327905?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="cca construcciones san patricio" data-key="03543694525">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>CCA CONSTRUCCIONES SAN PATRICIO</h2><p class="meta">Salsipuedes · 03543 69-4525</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a CCA CONSTRUCCIONES SAN PATRICIO en Google pero no encontré una web propia. Para constructora en Salsipuedes, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493543694525?text="
+       onclick="this.href='https://wa.me/5493543694525?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="fm constructora" data-key="03541649802">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>FM Constructora</h2><p class="meta">tu zona · 03541 64-9802</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de FM Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541649802?text="
+       onclick="this.href='https://wa.me/5493541649802?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="quattro pilares srl" data-key="03516832860">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Quattro Pilares SRL</h2><p class="meta">Villa Carlos Paz · 0351 683-2860</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Quattro Pilares SRL y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516832860?text="
+       onclick="this.href='https://wa.me/5493516832860?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="cerco blanco constructora" data-key="03518651642">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Cerco Blanco Constructora</h2><p class="meta">(Variante Colectora Juárez Celman · 0351 865-1642</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Cerco Blanco Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493518651642?text="
+       onclick="this.href='https://wa.me/5493518651642?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora carranza" data-key="03516987307">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Carranza</h2><p class="meta">Córdoba · 0351 698-7307</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tus redes de Constructora Carranza y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Córdoba es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516987307?text="
+       onclick="this.href='https://wa.me/5493516987307?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="casco blanco constructora" data-key="03513006426">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Casco Blanco Constructora</h2><p class="meta">Córdoba · 0351 300-6426</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Casco Blanco Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513006426?text="
+       onclick="this.href='https://wa.me/5493513006426?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="casa vida constructora" data-key="03515284515">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Casa Vida Constructora</h2><p class="meta">Córdoba · 0351 528-4515</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Casa Vida Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515284515?text="
+       onclick="this.href='https://wa.me/5493515284515?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="daniel quevedo construcciones" data-key="03541555418">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Daniel Quevedo Construcciones</h2><p class="meta">Villa Carlos Paz · 03541 55-5418</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de Daniel Quevedo Construcciones y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Villa Carlos Paz es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541555418?text="
+       onclick="this.href='https://wa.me/5493541555418?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="construcciones argentina" data-key="03515890366">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Construcciones Argentina</h2><p class="meta">Malagueño · 0351 589-0366</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Construcciones Argentina en Google pero no encontré una web propia. Para constructora en Malagueño, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515890366?text="
+       onclick="this.href='https://wa.me/5493515890366?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="oscar h martinez construcciones" data-key="03541424061">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Oscar H Martinez Construcciones</h2><p class="meta">Villa Carlos Paz · 03541 42-4061</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de Oscar H Martinez Construcciones y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Villa Carlos Paz es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541424061?text="
+       onclick="this.href='https://wa.me/5493541424061?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="lucas sanchez constructora" data-key="03541526608">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Lucas Sanchez Constructora</h2><p class="meta">Villa Santa Cruz del Lago · 03541 52-6608</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Lucas Sanchez Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541526608?text="
+       onclick="this.href='https://wa.me/5493541526608?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="moschella construcciones" data-key="03541542317">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Moschella Construcciones</h2><p class="meta">Villa Carlos Paz · 03541 54-2317</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Moschella Construcciones en Google pero no encontré una web propia. Para constructora en Villa Carlos Paz, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541542317?text="
+       onclick="this.href='https://wa.me/5493541542317?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="aue constructora" data-key="03541674554">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>AUE Constructora</h2><p class="meta">Villa Santa Cruz del Lago · 03541 67-4554</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de AUE Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493541674554?text="
+       onclick="this.href='https://wa.me/5493541674554?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="ingenieria &amp; diseño socbe s.a. empresa constructora" data-key="03514818892">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Ingenieria &amp; Diseño Socbe S.A. Empresa constructora</h2><p class="meta">Córdoba · 0351 481-8892</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Ingenieria &amp; Diseño Socbe S.A. Empresa constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514818892?text="
+       onclick="this.href='https://wa.me/5493514818892?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="martinez lumello construcciones s.a." data-key="03514552121">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Martinez Lumello Construcciones S.A.</h2><p class="meta">Córdoba · 0351 455-2121</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Martinez Lumello Construcciones S.A. y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514552121?text="
+       onclick="this.href='https://wa.me/5493514552121?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="construcciones garcía s.r.l." data-key="03514902099">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>CONSTRUCCIONES GARCÍA S.R.L.</h2><p class="meta">Col. Tirolesa · 0351 490-2099</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a CONSTRUCCIONES GARCÍA S.R.L. en Google pero no encontré una web propia. Para constructora en Col. Tirolesa, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514902099?text="
+       onclick="this.href='https://wa.me/5493514902099?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora lw" data-key="0351153869313">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Lw</h2><p class="meta">Villa San Nicolas · 0351 15-386-9313</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora Lw en Google pero no encontré una web propia. Para constructora en Villa San Nicolas, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513869313?text="
+       onclick="this.href='https://wa.me/5493513869313?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="binder constructora" data-key="03514810247">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Binder Constructora</h2><p class="meta">1º · 0351 481-0247</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Binder Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514810247?text="
+       onclick="this.href='https://wa.me/5493514810247?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="bm&amp; asociados, arquitectura y maestros mayores de obras" data-key="03472436486">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>BM&amp; Asociados, Arquitectura y Maestros Mayores de Obras</h2><p class="meta">Villa Carlos Paz · 03472 43-6486</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de BM&amp; Asociados, Arquitectura y Maestros Mayores de Obras y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para estudio de arquitectura en Villa Carlos Paz es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus proyectos? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493472436486?text="
+       onclick="this.href='https://wa.me/5493472436486?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constantino v" data-key="03513106704">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>CONSTANTINO V</h2><p class="meta">Villa Carlos Paz · 0351 310-6704</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de CONSTANTINO V y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513106704?text="
+       onclick="this.href='https://wa.me/5493513106704?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="greenlife constructora sas" data-key="03547452579">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>GreenLife Constructora SAS</h2><p class="meta">Córdoba · 03547 45-2579</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de GreenLife Constructora SAS y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493547452579?text="
+       onclick="this.href='https://wa.me/5493547452579?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="smarts homes constructora" data-key="03516767676">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Smarts Homes Constructora</h2><p class="meta">Córdoba · 0351 676-7676</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Smarts Homes Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516767676?text="
+       onclick="this.href='https://wa.me/5493516767676?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="alfa" data-key="03548595626">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Alfa</h2><p class="meta">Villa Giardino · 03548 59-5626</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Alfa en Google pero no encontré una web propia. Para constructora en Villa Giardino, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493548595626?text="
+       onclick="this.href='https://wa.me/5493548595626?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="grupo crear constructora" data-key="03543641483">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Grupo Crear Constructora</h2><p class="meta">La Granja · 03543 64-1483</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Grupo Crear Constructora y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en La Granja es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493543641483?text="
+       onclick="this.href='https://wa.me/5493543641483?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="del puerto constructora" data-key="03517539279">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Del Puerto Constructora</h2><p class="meta">Oficina 4 · 0351 753-9279</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Del Puerto Constructora en Google pero no encontré una web propia. Para constructora en Oficina 4, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493517539279?text="
+       onclick="this.href='https://wa.me/5493517539279?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="bilt constructora" data-key="03513317014">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Bilt constructora</h2><p class="meta">oficina 2 · 0351 331-7014</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Bilt constructora en Google pero no encontré una web propia. Para constructora en oficina 2, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513317014?text="
+       onclick="this.href='https://wa.me/5493513317014?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="meta steel constructora desarrollista" data-key="03512011707">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Meta Steel constructora desarrollista</h2><p class="meta">Córdoba · 0351 201-1707</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Meta Steel constructora desarrollista en Google pero no encontré una web propia. Para desarrollos inmobiliarios en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus unidades y emprendimientos, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493512011707?text="
+       onclick="this.href='https://wa.me/5493512011707?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="montalvo constructora" data-key="03515494725">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Montalvo Constructora</h2><p class="meta">Córdoba · 0351 549-4725</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Montalvo Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515494725?text="
+       onclick="this.href='https://wa.me/5493515494725?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora rizoma" data-key="03513993236">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Rizoma</h2><p class="meta">Córdoba · 0351 399-3236</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora Rizoma en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513993236?text="
+       onclick="this.href='https://wa.me/5493513993236?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora thor srl" data-key="03516799888">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Thor SRL</h2><p class="meta">Córdoba · 0351 679-9888</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora Thor SRL en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516799888?text="
+       onclick="this.href='https://wa.me/5493516799888?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="killa desarrollos / constructora desarrollista" data-key="0351152128166">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Killa Desarrollos / Constructora Desarrollista</h2><p class="meta">Córdoba · 0351 15-212-8166</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Instagram de Killa Desarrollos / Constructora Desarrollista y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para desarrollos inmobiliarios en Córdoba es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus unidades y emprendimientos? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493512128166?text="
+       onclick="this.href='https://wa.me/5493512128166?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="britos constructora" data-key="03514801759">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Britos Constructora</h2><p class="meta">Córdoba · 0351 480-1759</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Britos Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514801759?text="
+       onclick="this.href='https://wa.me/5493514801759?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="bz arq" data-key="03516571425">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>BZ Arq</h2><p class="meta">Córdoba · 0351 657-1425</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a BZ Arq en Google pero no encontré una web propia. Para estudio de arquitectura en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus proyectos, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493516571425?text="
+       onclick="this.href='https://wa.me/5493516571425?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="dyasa empresa constructora" data-key="03514813372">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Dyasa Empresa Constructora</h2><p class="meta">Oficina 2 Piso 1 · 0351 481-3372</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Dyasa Empresa Constructora en Google pero no encontré una web propia. Para constructora en Oficina 2 Piso 1, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514813372?text="
+       onclick="this.href='https://wa.me/5493514813372?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="gauros viviendas" data-key="03513600347">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Gauros Viviendas</h2><p class="meta">De los Latinos 7120 · 0351 360-0347</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de Gauros Viviendas y como viviendas tengo un par de ideas para que tus modelos de vivienda conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513600347?text="
+       onclick="this.href='https://wa.me/5493513600347?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="gb constructora srl" data-key="03514652131">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Gb Constructora SRL</h2><p class="meta">Córdoba · 0351 465-2131</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Gb Constructora SRL en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514652131?text="
+       onclick="this.href='https://wa.me/5493514652131?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="ceballos construcciones" data-key="03515289658">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Ceballos construcciones</h2><p class="meta">Astor Piazzolla · 0351 528-9658</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Ceballos construcciones en Google pero no encontré una web propia. Para constructora en Astor Piazzolla, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515289658?text="
+       onclick="this.href='https://wa.me/5493515289658?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="armag constructora desarrollista" data-key="03515526042">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>ARMAG CONSTRUCTORA DESARROLLISTA</h2><p class="meta">Córdoba · 0351 552-6042</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a ARMAG CONSTRUCTORA DESARROLLISTA en Google pero no encontré una web propia. Para desarrollos inmobiliarios en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus unidades y emprendimientos, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493515526042?text="
+       onclick="this.href='https://wa.me/5493515526042?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="lmr constructora s.a" data-key="03514286861">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>LMR CONSTRUCTORA S.A</h2><p class="meta">AEG · 0351 428-6861</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a LMR CONSTRUCTORA S.A en Google pero no encontré una web propia. Para constructora en AEG, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514286861?text="
+       onclick="this.href='https://wa.me/5493514286861?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="ciar sa empresa constructora" data-key="03514232365">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Ciar Sa Empresa Constructora</h2><p class="meta">Córdoba · 0351 423-2365</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Ciar Sa Empresa Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514232365?text="
+       onclick="this.href='https://wa.me/5493514232365?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora el rey srl" data-key="03514770347">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora El Rey SRL</h2><p class="meta">Loc. 2 · 0351 477-0347</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora El Rey SRL en Google pero no encontré una web propia. Para constructora en Loc. 2, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514770347?text="
+       onclick="this.href='https://wa.me/5493514770347?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="cabial empresa constructora" data-key="03514822855">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Cabial Empresa Constructora</h2><p class="meta">Córdoba · 0351 482-2855</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Cabial Empresa Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514822855?text="
+       onclick="this.href='https://wa.me/5493514822855?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="castor constructora" data-key="03514802096">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Castor Constructora</h2><p class="meta">Córdoba · 0351 480-2096</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Castor Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514802096?text="
+       onclick="this.href='https://wa.me/5493514802096?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="zoe constructora" data-key="03513105447">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>ZOE Constructora</h2><p class="meta">Córdoba · 0351 310-5447</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a ZOE Constructora en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493513105447?text="
+       onclick="this.href='https://wa.me/5493513105447?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="basaa constructora" data-key="03514800179">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>BASAA Constructora</h2><p class="meta">Córdoba · 0351 480-0179</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Entré a la web de BASAA Constructora y como constructora tengo un par de ideas para que tus obras terminadas conviertan más consultas. ¿Te las muestro en un mensaje corto, sin compromiso?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514800179?text="
+       onclick="this.href='https://wa.me/5493514800179?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora territorial sa" data-key="03514243938">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora Territorial SA</h2><p class="meta">Córdoba · 0351 424-3938</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a Constructora Territorial SA en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514243938?text="
+       onclick="this.href='https://wa.me/5493514243938?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="jmc &amp; asociados constructora" data-key="03546477202">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Jmc &amp; Asociados Constructora</h2><p class="meta">Córdoba · 03546 47-7202</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de Jmc &amp; Asociados Constructora y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para constructora en Córdoba es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus obras terminadas? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493546477202?text="
+       onclick="this.href='https://wa.me/5493546477202?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="di luca" data-key="03519037342">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>DI LUCA</h2><p class="meta">Córdoba · 0351 903-7342</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a DI LUCA en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493519037342?text="
+       onclick="this.href='https://wa.me/5493519037342?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="a blanco empresa constructora srl" data-key="03514871618">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>A Blanco Empresa Constructora SRL</h2><p class="meta">Córdoba · 0351 487-1618</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi a A Blanco Empresa Constructora SRL en Google pero no encontré una web propia. Para constructora en Córdoba, una web es lo que convierte al que te busca en consulta. Te armo en 2 minutos una idea mostrando tus obras terminadas, sin compromiso. ¿Te sirve?</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493514871618?text="
+       onclick="this.href='https://wa.me/5493514871618?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article>
+  <article class="card" data-name="constructora 0.cero_arquitectura" data-key="03498440831">
+    <div class="head"><span class="badge wa">WhatsApp</span>
+      <button class="done" onclick="toggleDone(this)">Enviado</button></div>
+    <h2>Constructora 0.cero_arquitectura</h2><p class="meta">Villa Carlos Paz · 03498 44-0831</p>
+    <textarea>Hola! Soy Jano Maciel, de Clyra Studio. Vi tu Facebook de Constructora 0.cero_arquitectura y se ve el laburo. El tema es que una red no aparece en Google ni es 100% tuya; una web propia sí, y para estudio de arquitectura en Villa Carlos Paz es lo que convierte al que te busca. ¿Te muestro cómo quedaría mostrando tus proyectos? Sin compromiso.</textarea>
+    <a class="send wa" target="_blank" href="https://wa.me/5493498440831?text="
+       onclick="this.href='https://wa.me/5493498440831?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+  </article></div><script>window.PREV=[];</script><script>
+  var LS='clyra_enviados';
+  function load(){try{return JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){return[]}}
+  function save(a){try{localStorage.setItem(LS,JSON.stringify(a))}catch(e){}}
+  function recount(){document.getElementById('done').textContent=document.querySelectorAll('.card.is-done').length;}
+  function toggleDone(b){var c=b.closest('.card');c.classList.toggle('is-done');
+    var on=c.classList.contains('is-done');b.textContent=on?'Deshacer':'Enviado';
+    var k=c.dataset.key,a=load();var i=a.indexOf(k);
+    if(on&&i<0)a.push(k);if(!on&&i>=0)a.splice(i,1);save(a);recount();}
+  function filtrar(){var q=document.getElementById('q').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(function(c){c.style.display=c.dataset.name.includes(q)?'':'none';});}
+  function descargar(){
+    var prev=window.PREV||[];var s={};prev.forEach(function(k){s[k]=1});
+    document.querySelectorAll('.card.is-done').forEach(function(c){s[c.dataset.key]=1});
+    var csv='key\n'+Object.keys(s).join('\n')+'\n';
+    var b=new Blob([csv],{type:'text/csv'});var u=URL.createObjectURL(b);
+    var a=document.createElement('a');a.href=u;a.download='contactados.csv';a.click();URL.revokeObjectURL(u);}
+  window.addEventListener('load',function(){
+    var a=load();document.querySelectorAll('.card').forEach(function(c){
+      if(a.indexOf(c.dataset.key)>=0){c.classList.add('is-done');
+        var b=c.querySelector('.done');if(b)b.textContent='Deshacer';}});
+    recount();});
+</script></body></html>
