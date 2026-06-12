@@ -240,10 +240,6 @@ def main(csv_path):
         ciudad = ciudad_de(r["Address"])
         if r["email"] and "@" in r["email"]:
             asunto, cuerpo = email_asunto_cuerpo(nombre)
-            gmail = (
-                "https://mail.google.com/mail/?view=cm&fs=1"
-                f"&to={quote(r['email'])}&su={quote(asunto)}&body={quote(cuerpo)}"
-            )
             mail_cards.append(f"""
   <article class="card" data-name="{ne.lower()}" data-key="{html.escape(k)}">
     <div class="head"><span class="badge mail">Email</span>
@@ -251,7 +247,8 @@ def main(csv_path):
     <h2>{ne}</h2><p class="meta">{html.escape(r['email'])}</p>
     <input class="su" value="{html.escape(asunto)}">
     <textarea>{html.escape(cuerpo)}</textarea>
-    <a class="send mail" target="_blank" href="{html.escape(gmail)}">Abrir en Gmail</a>
+    <a class="send mail" href="mailto:{html.escape(r['email'])}"
+       onclick="this.href='mailto:{html.escape(r['email'])}?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
   </article>""")
         else:
             wa = tel_a_wa(r["Phone number"])
@@ -277,9 +274,9 @@ def main(csv_path):
 
     if ya:
         print(f"Salteados por estar en contactados.csv: {saltados}")
-    print(f"✓ emails.html   -> {len(mail_cards)} leads con botón Gmail")
-    print(f"✓ whatsapp.html -> {len(wa_cards)} leads con botón WhatsApp")
-    print("Abrí emails.html en el navegador y empezá por ahí.")
+    print(f"OK: emails.html   -> {len(mail_cards)} leads con boton Email")
+    print(f"OK: whatsapp.html -> {len(wa_cards)} leads con boton WhatsApp")
+    print("Abri emails.html en el navegador y empeza por ahi.")
 
 
 if __name__ == "__main__":
