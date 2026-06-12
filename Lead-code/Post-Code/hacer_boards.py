@@ -85,16 +85,31 @@ def rubro(title):
     return ("constructora", "tus obras terminadas")
 
 
+def link_web_redes(url):
+    u = str(url).strip().lower()
+    if not u or u in ("nan", ""):
+        return None, None
+    href = url
+    if not href.startswith(("http://", "https://")):
+        href = "https://" + href
+    if any(r in u for r in ("instagram.com", "facebook.com", "linktr", "wa.me", "tiktok.com", "twitter.com", "linkedin.com", "youtube.com")):
+        return "Redes", href
+    return "Web", href
+
+
 def email_asunto_cuerpo(nombre):
     desc, cosa = rubro(nombre)
     asunto = f"Una idea para la web de {nombre}"
     cuerpo = (
         f"Hola, ¿cómo estás? Soy {NOMBRE}, de {STUDIO}.\n\n"
-        f"Entré a la web de {nombre} y como {desc} se nota que ya invirtieron en "
-        f"presencia. Tengo un par de ideas concretas para que {cosa} conviertan más "
-        f"consultas (velocidad, claridad de la oferta y captación de leads).\n\n"
-        f"¿Te interesa que te las pase en un mensaje corto, sin compromiso?\n\n"
-        f"Saludos,\n{NOMBRE}\n{STUDIO} — Desarrollo web\n{EMAIL_REMITENTE}"
+        f"Estuve mirando la web de {nombre} y me gustó mucho su trabajo como {desc}.\n\n"
+        f"Te escribo porque se me ocurrieron un par de ideas concretas para que {cosa} "
+        f"generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).\n\n"
+        f"¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?\n\n"
+        f"Un saludo,\n\n"
+        f"{NOMBRE}\n"
+        f"{STUDIO} — Diseño & Desarrollo Web\n"
+        f"{EMAIL_REMITENTE}"
     )
     return asunto, cuerpo
 
@@ -104,23 +119,21 @@ def wa_texto(seg, nombre, ciudad, url=""):
     desc, cosa = rubro(nombre)
     if seg == "WEB_PROPIA":
         return (
-            f"Hola! Soy {NOMBRE}, de {STUDIO}. Entré a la web de {nombre} y como {desc} "
-            f"tengo un par de ideas para que {cosa} conviertan más consultas. "
-            f"¿Te las muestro en un mensaje corto, sin compromiso?"
+            f"Hola! ¿Cómo estás? Soy {NOMBRE} de {STUDIO}. Estuve viendo la web de {nombre} "
+            f"y me pareció excelente su trabajo como {desc}. Tengo un par de ideas simples "
+            f"para que {cosa} consigan más clientes. ¿Te las puedo compartir por acá, sin compromiso?"
         )
     if seg == "SOLO_REDES":
         red = "tu Instagram" if "instagram" in u else "tu Facebook" if "facebook" in u else "tus redes"
         return (
-            f"Hola! Soy {NOMBRE}, de {STUDIO}. Vi {red} de {nombre} y se ve el laburo. "
-            f"El tema es que una red no aparece en Google ni es 100% tuya; una web "
-            f"propia sí, y para {desc} en {ciudad} es lo que convierte al que te busca. "
-            f"¿Te muestro cómo quedaría mostrando {cosa}? Sin compromiso."
+            f"Hola! ¿Cómo va? Soy {NOMBRE} de {STUDIO}. Vi {red} de {nombre} y se ve muy bueno el laburo. "
+            f"Como {desc} en {ciudad}, hoy depender solo de redes limita a los clientes que buscan directo en Google. "
+            f"¿Te gustaría ver una propuesta rápida de cómo quedaría una web propia mostrando {cosa}? Sin compromiso."
         )
     return (
-        f"Hola! Soy {NOMBRE}, de {STUDIO}. Vi a {nombre} en Google pero no encontré una "
-        f"web propia. Para {desc} en {ciudad}, una web es lo que convierte al que te "
-        f"busca en consulta. Te armo en 2 minutos una idea mostrando {cosa}, sin "
-        f"compromiso. ¿Te sirve?"
+        f"Hola, ¿cómo estás? Soy {NOMBRE} de {STUDIO}. Busqué a {nombre} en Google pero no "
+        f"encontré su web propia. Para {desc} en {ciudad}, tener un sitio es clave para convertir las búsquedas en clientes. "
+        f"Te puedo armar en unos minutos una idea/diseño rápido de cómo quedaría mostrando {cosa}, sin compromiso. ¿Te interesaría verlo?"
     )
 
 
@@ -149,9 +162,13 @@ CSS = """
   h2{margin:0;font-size:17px}.meta{margin:0;color:var(--mut);font-size:13px;word-break:break-all}
   input.su{width:100%;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px;font-size:13px}
   textarea{width:100%;min-height:120px;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:10px;font:13px/1.5 inherit;resize:vertical}
+  .actions{display:flex;gap:8px;width:100%;align-items:center}
+  .actions .send{flex:1;margin:0}
   .send{display:block;text-align:center;font-weight:700;text-decoration:none;padding:11px;border-radius:9px}
   .send.mail{background:var(--cyan);color:#04211e}.send.wa{background:var(--wa);color:#04210f}
   .send:hover{filter:brightness(1.08)}
+  .link-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:11px 16px;border-radius:9px;font-weight:600;background:var(--line);color:var(--txt);border:1px solid var(--line);font-size:13px;transition:background 0.2s,border-color 0.2s;white-space:nowrap}
+  .link-btn:hover{background:#3a3a3a;border-color:var(--mut)}
 """
 
 JS = """
@@ -238,6 +255,9 @@ def main(csv_path):
         nombre = nombre_marca(r["Title"])
         ne = html.escape(nombre)
         ciudad = ciudad_de(r["Address"])
+        lbl, href = link_web_redes(r["Website"])
+        link_html = f'<a class="link-btn" href="{html.escape(href)}" target="_blank">{lbl} ↗</a>' if href else ''
+
         if r["email"] and "@" in r["email"]:
             asunto, cuerpo = email_asunto_cuerpo(nombre)
             mail_cards.append(f"""
@@ -247,8 +267,11 @@ def main(csv_path):
     <h2>{ne}</h2><p class="meta">{html.escape(r['email'])}</p>
     <input class="su" value="{html.escape(asunto)}">
     <textarea>{html.escape(cuerpo)}</textarea>
-    <a class="send mail" href="mailto:{html.escape(r['email'])}"
-       onclick="this.href='mailto:{html.escape(r['email'])}?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:{html.escape(r['email'])}"
+         onclick="this.href='mailto:{html.escape(r['email'])}?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      {link_html}
+    </div>
   </article>""")
         else:
             wa = tel_a_wa(r["Phone number"])
@@ -261,8 +284,11 @@ def main(csv_path):
       <button class="done" onclick="toggleDone(this)">Enviado</button></div>
     <h2>{ne}</h2><p class="meta">{ciudad} · {html.escape(r['Phone number'] or '—')}</p>
     <textarea>{html.escape(txt)}</textarea>
-    <a class="send wa" target="_blank" href="https://wa.me/{wa}?text="
-       onclick="this.href='https://wa.me/{wa}?text='+encodeURIComponent(this.previousElementSibling.value)">Enviar por WhatsApp</a>
+    <div class="actions">
+      <a class="send wa" target="_blank" href="https://wa.me/{wa}?text="
+         onclick="this.href='https://wa.me/{wa}?text='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Enviar por WhatsApp</a>
+      {link_html}
+    </div>
   </article>""")
 
     prev_js = "<script>window.PREV=" + json.dumps(prev) + ";</script>"

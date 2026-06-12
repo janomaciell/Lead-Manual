@@ -25,9 +25,13 @@
   h2{margin:0;font-size:17px}.meta{margin:0;color:var(--mut);font-size:13px;word-break:break-all}
   input.su{width:100%;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px;font-size:13px}
   textarea{width:100%;min-height:120px;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:10px;font:13px/1.5 inherit;resize:vertical}
+  .actions{display:flex;gap:8px;width:100%;align-items:center}
+  .actions .send{flex:1;margin:0}
   .send{display:block;text-align:center;font-weight:700;text-decoration:none;padding:11px;border-radius:9px}
   .send.mail{background:var(--cyan);color:#04211e}.send.wa{background:var(--wa);color:#04210f}
   .send:hover{filter:brightness(1.08)}
+  .link-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:11px 16px;border-radius:9px;font-weight:600;background:var(--line);color:var(--txt);border:1px solid var(--line);font-size:13px;transition:background 0.2s,border-color 0.2s;white-space:nowrap}
+  .link-btn:hover{background:#3a3a3a;border-color:var(--mut)}
 </style></head><body>
 <header><h1><span>Clyra</span> · Outreach por Email</h1>
 <p class="sub">Marcá "Enviado" a medida que mandás. Al terminar, tocá "Descargar contactados" y dejá ese archivo en la carpeta: en la próxima corrida no vuelven a aparecer.</p></header>
@@ -43,16 +47,22 @@
     <input class="su" value="Una idea para la web de Plateas Punilla">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Plateas Punilla y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Plateas Punilla y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:plateaspunillaconstrucciones@gmail.com"
-       onclick="this.href='mailto:plateaspunillaconstrucciones@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:plateaspunillaconstrucciones@gmail.com"
+         onclick="this.href='mailto:plateaspunillaconstrucciones@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://plateaspunilla.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="montecons desarrollistas" data-key="ventas@montecons.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -61,16 +71,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Montecons Desarrollistas">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Montecons Desarrollistas y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Montecons Desarrollistas y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:ventas@montecons.com.ar"
-       onclick="this.href='mailto:ventas@montecons.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:ventas@montecons.com.ar"
+         onclick="this.href='mailto:ventas@montecons.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.montecons.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="tlc pavimento y hormigón" data-key="tlcpavimentoyhormigon@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -79,16 +95,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de TLC Pavimento y Hormigón">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de TLC Pavimento y Hormigón y como obra civil se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras y servicios conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de TLC Pavimento y Hormigón y me gustó mucho su trabajo como obra civil.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras y servicios generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:tlcpavimentoyhormigon@gmail.com"
-       onclick="this.href='mailto:tlcpavimentoyhormigon@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:tlcpavimentoyhormigon@gmail.com"
+         onclick="this.href='mailto:tlcpavimentoyhormigon@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://tlc-constructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="vecta constructora" data-key="info@vectaconstructora.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -97,16 +119,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Vecta Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Vecta Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Vecta Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@vectaconstructora.com"
-       onclick="this.href='mailto:info@vectaconstructora.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@vectaconstructora.com"
+         onclick="this.href='mailto:info@vectaconstructora.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://vectaconstructora.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="grupo mac constructora" data-key="info@grupomacconstructora.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -115,16 +143,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Grupo Mac Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Grupo Mac Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Grupo Mac Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@grupomacconstructora.com"
-       onclick="this.href='mailto:info@grupomacconstructora.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@grupomacconstructora.com"
+         onclick="this.href='mailto:info@grupomacconstructora.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://www.grupomacconstructora.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="grupo kreos constructora" data-key="grupokreosconstructora@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -133,16 +167,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Grupo Kreos Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Grupo Kreos Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Grupo Kreos Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:grupokreosconstructora@gmail.com"
-       onclick="this.href='mailto:grupokreosconstructora@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:grupokreosconstructora@gmail.com"
+         onclick="this.href='mailto:grupokreosconstructora@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.kreosconstructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="abregu constructora" data-key="ventas@abreguconstructora.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -151,16 +191,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Abregu Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Abregu Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Abregu Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:ventas@abreguconstructora.com.ar"
-       onclick="this.href='mailto:ventas@abreguconstructora.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:ventas@abreguconstructora.com.ar"
+         onclick="this.href='mailto:ventas@abreguconstructora.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://abreguconstructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="aclade s.r.l. – empresa constructora" data-key="aclade@acladesrl.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -169,16 +215,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Aclade S.R.L. – Empresa Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Aclade S.R.L. – Empresa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Aclade S.R.L. – Empresa Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:aclade@acladesrl.com.ar"
-       onclick="this.href='mailto:aclade@acladesrl.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:aclade@acladesrl.com.ar"
+         onclick="this.href='mailto:aclade@acladesrl.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.acladesrl.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="empresa constructora en córdoba" data-key="empresadeconstruccioncordoba@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -187,16 +239,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Empresa Constructora en Córdoba">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Empresa Constructora en Córdoba y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Empresa Constructora en Córdoba y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:empresadeconstruccioncordoba@gmail.com"
-       onclick="this.href='mailto:empresadeconstruccioncordoba@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:empresadeconstruccioncordoba@gmail.com"
+         onclick="this.href='mailto:empresadeconstruccioncordoba@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://empresaconstructoracordoba.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="rode" data-key="ventas@rode.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -205,16 +263,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de RODE">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de RODE y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de RODE y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:ventas@rode.com.ar"
-       onclick="this.href='mailto:ventas@rode.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:ventas@rode.com.ar"
+         onclick="this.href='mailto:ventas@rode.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://rode.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="eleven" data-key="info@elevendesarrollos.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -223,16 +287,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Eleven">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Eleven y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Eleven y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@elevendesarrollos.com.ar"
-       onclick="this.href='mailto:info@elevendesarrollos.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@elevendesarrollos.com.ar"
+         onclick="this.href='mailto:info@elevendesarrollos.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://www.elevendesarrollos.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="busleiman herrería y construcción" data-key="info@estructurasbusleiman.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -241,16 +311,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Busleiman Herrería y Construcción">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Busleiman Herrería y Construcción y como herrería y estructuras se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus trabajos terminados conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Busleiman Herrería y Construcción y me gustó mucho su trabajo como herrería y estructuras.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus trabajos terminados generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@estructurasbusleiman.com.ar"
-       onclick="this.href='mailto:info@estructurasbusleiman.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@estructurasbusleiman.com.ar"
+         onclick="this.href='mailto:info@estructurasbusleiman.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://estructurasbusleiman.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="piscinas psi" data-key="psi-cordoba@outlook.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -259,16 +335,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Piscinas PSI">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Piscinas PSI y como piscinas se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus piscinas con fotos que vendan conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Piscinas PSI y me gustó mucho su trabajo como piscinas.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus piscinas con fotos que vendan generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:psi-cordoba@outlook.com"
-       onclick="this.href='mailto:psi-cordoba@outlook.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:psi-cordoba@outlook.com"
+         onclick="this.href='mailto:psi-cordoba@outlook.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.piscinaspsi.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="ct&amp;a constructora" data-key="ctyaconstructoracomercial@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -277,16 +359,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de CT&amp;A Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de CT&amp;A Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de CT&amp;A Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:ctyaconstructoracomercial@gmail.com"
-       onclick="this.href='mailto:ctyaconstructoracomercial@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:ctyaconstructoracomercial@gmail.com"
+         onclick="this.href='mailto:ctyaconstructoracomercial@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://www.ctyaconstructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="coemsa constructora steel framing" data-key="info@coemsa.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -295,16 +383,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Coemsa Constructora Steel Framing">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Coemsa Constructora Steel Framing y como herrería y estructuras se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus trabajos terminados conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Coemsa Constructora Steel Framing y me gustó mucho su trabajo como herrería y estructuras.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus trabajos terminados generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@coemsa.com.ar"
-       onclick="this.href='mailto:info@coemsa.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@coemsa.com.ar"
+         onclick="this.href='mailto:info@coemsa.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.coemsa.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="constructora la casa mía" data-key="info@lacasamia.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -313,16 +407,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Constructora La Casa Mía">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Constructora La Casa Mía y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Constructora La Casa Mía y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@lacasamia.com.ar"
-       onclick="this.href='mailto:info@lacasamia.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@lacasamia.com.ar"
+         onclick="this.href='mailto:info@lacasamia.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.lacasamia.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="m100 emprendimientos inmobiliarios" data-key="xuumtoken@m100emprendimientos.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -331,16 +431,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de M100 Emprendimientos Inmobiliarios">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de M100 Emprendimientos Inmobiliarios y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de M100 Emprendimientos Inmobiliarios y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:xuumtoken@m100emprendimientos.com.ar"
-       onclick="this.href='mailto:xuumtoken@m100emprendimientos.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:xuumtoken@m100emprendimientos.com.ar"
+         onclick="this.href='mailto:xuumtoken@m100emprendimientos.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://m100emprendimientos.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="edifica constructora/inmobiliaria" data-key="luisaamaya@edificaconstructorainmobiliaria.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -349,16 +455,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Edifica Constructora/Inmobiliaria">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Edifica Constructora/Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Edifica Constructora/Inmobiliaria y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:luisaamaya@edificaconstructorainmobiliaria.com"
-       onclick="this.href='mailto:luisaamaya@edificaconstructorainmobiliaria.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:luisaamaya@edificaconstructorainmobiliaria.com"
+         onclick="this.href='mailto:luisaamaya@edificaconstructorainmobiliaria.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://edificaconstructorainmobiliaria.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="gut constructora inmobiliaria" data-key="info@gutconstructora.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -367,16 +479,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de GUT Constructora Inmobiliaria">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de GUT Constructora Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de GUT Constructora Inmobiliaria y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@gutconstructora.com.ar"
-       onclick="this.href='mailto:info@gutconstructora.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@gutconstructora.com.ar"
+         onclick="this.href='mailto:info@gutconstructora.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://gutconstructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="fit constructora" data-key="info@fitconstructora.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -385,16 +503,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Fit Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Fit Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Fit Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@fitconstructora.com.ar"
-       onclick="this.href='mailto:info@fitconstructora.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@fitconstructora.com.ar"
+         onclick="this.href='mailto:info@fitconstructora.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://fitconstructora.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="item construcciones sa" data-key="itemsa@itemsa.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -403,16 +527,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Item Construcciones Sa">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Item Construcciones Sa y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Item Construcciones Sa y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:itemsa@itemsa.com.ar"
-       onclick="this.href='mailto:itemsa@itemsa.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:itemsa@itemsa.com.ar"
+         onclick="this.href='mailto:itemsa@itemsa.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.item.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="vc inmobiliaria" data-key="info@inmobiliariavc.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -421,16 +551,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de VC Inmobiliaria">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de VC Inmobiliaria y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de VC Inmobiliaria y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@inmobiliariavc.com.ar"
-       onclick="this.href='mailto:info@inmobiliariavc.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@inmobiliariavc.com.ar"
+         onclick="this.href='mailto:info@inmobiliariavc.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://inmobiliariavc.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="empresa constructora base srl" data-key="info@empresaconstructorabase.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -439,16 +575,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Empresa Constructora Base SRL">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Empresa Constructora Base SRL y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Empresa Constructora Base SRL y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@empresaconstructorabase.com"
-       onclick="this.href='mailto:info@empresaconstructorabase.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@empresaconstructorabase.com"
+         onclick="this.href='mailto:info@empresaconstructorabase.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://www.empresaconstructorabase.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="marassa construcciones" data-key="info@marassaconstrucciones.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -457,16 +599,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Marassa Construcciones">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Marassa Construcciones y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Marassa Construcciones y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@marassaconstrucciones.com.ar"
-       onclick="this.href='mailto:info@marassaconstrucciones.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@marassaconstrucciones.com.ar"
+         onclick="this.href='mailto:info@marassaconstrucciones.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://marassaconstrucciones.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="sapyc s.r.l." data-key="sapyc@sapyc.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -475,16 +623,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Sapyc S.R.L.">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Sapyc S.R.L. y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Sapyc S.R.L. y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:sapyc@sapyc.com"
-       onclick="this.href='mailto:sapyc@sapyc.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:sapyc@sapyc.com"
+         onclick="this.href='mailto:sapyc@sapyc.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.sapyc.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="pucheta construcciones" data-key="empresa@puchetaconstrucciones.com.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -493,16 +647,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Pucheta Construcciones">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Pucheta Construcciones y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Pucheta Construcciones y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:empresa@puchetaconstrucciones.com.ar"
-       onclick="this.href='mailto:empresa@puchetaconstrucciones.com.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:empresa@puchetaconstrucciones.com.ar"
+         onclick="this.href='mailto:empresa@puchetaconstrucciones.com.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://puchetaconstrucciones.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="corobra empresa constructora" data-key="corobrasrl@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -511,16 +671,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de COROBRA Empresa Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de COROBRA Empresa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de COROBRA Empresa Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:corobrasrl@gmail.com"
-       onclick="this.href='mailto:corobrasrl@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:corobrasrl@gmail.com"
+         onclick="this.href='mailto:corobrasrl@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.corobra.com/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="casaclick inmobiliaria y constructora" data-key="inmobiliariacasaclick@gmail.com">
     <div class="head"><span class="badge mail">Email</span>
@@ -529,16 +695,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de CasaClick Inmobiliaria y Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de CasaClick Inmobiliaria y Constructora y como desarrollos inmobiliarios se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus unidades y emprendimientos conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de CasaClick Inmobiliaria y Constructora y me gustó mucho su trabajo como desarrollos inmobiliarios.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus unidades y emprendimientos generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:inmobiliariacasaclick@gmail.com"
-       onclick="this.href='mailto:inmobiliariacasaclick@gmail.com?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:inmobiliariacasaclick@gmail.com"
+         onclick="this.href='mailto:inmobiliariacasaclick@gmail.com?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="https://casa-click.com.ar/" target="_blank">Web ↗</a>
+    </div>
   </article>
   <article class="card" data-name="embesa constructora" data-key="info@embesa.ar">
     <div class="head"><span class="badge mail">Email</span>
@@ -547,16 +719,22 @@ janomaciel1@gmail.com</textarea>
     <input class="su" value="Una idea para la web de Embesa Constructora">
     <textarea>Hola, ¿cómo estás? Soy Jano Maciel, de Clyra Studio.
 
-Entré a la web de Embesa Constructora y como constructora se nota que ya invirtieron en presencia. Tengo un par de ideas concretas para que tus obras terminadas conviertan más consultas (velocidad, claridad de la oferta y captación de leads).
+Estuve mirando la web de Embesa Constructora y me gustó mucho su trabajo como constructora.
 
-¿Te interesa que te las pase en un mensaje corto, sin compromiso?
+Te escribo porque se me ocurrieron un par de ideas concretas para que tus obras terminadas generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).
 
-Saludos,
+¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?
+
+Un saludo,
+
 Jano Maciel
-Clyra Studio — Desarrollo web
+Clyra Studio — Diseño &amp; Desarrollo Web
 janomaciel1@gmail.com</textarea>
-    <a class="send mail" href="mailto:info@embesa.ar"
-       onclick="this.href='mailto:info@embesa.ar?subject='+encodeURIComponent(this.previousElementSibling.previousElementSibling.value)+'&body='+encodeURIComponent(this.previousElementSibling.value)">Abrir en Email</a>
+    <div class="actions">
+      <a class="send mail" href="mailto:info@embesa.ar"
+         onclick="this.href='mailto:info@embesa.ar?subject='+encodeURIComponent(this.closest('.card').querySelector('.su').value)+'&body='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">Abrir en Email</a>
+      <a class="link-btn" href="http://www.embesa.ar/" target="_blank">Web ↗</a>
+    </div>
   </article></div><script>window.PREV=[];</script><script>
   var LS='clyra_enviados';
   function load(){try{return JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){return[]}}

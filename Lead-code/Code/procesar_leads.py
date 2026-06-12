@@ -185,11 +185,14 @@ def email_draft(nombre, ciudad):
     asunto = f"Una idea para la web de {nombre}"
     cuerpo = (
         f"Hola, ¿cómo estás? Soy {REMITENTE}, de {STUDIO}.\n\n"
-        f"Entré a la web de {nombre} y se nota que ya invirtieron en presencia. "
-        f"Tengo un par de ideas concretas para que rinda más en consultas "
-        f"(velocidad, claridad de la oferta y captación de leads).\n\n"
-        f"¿Te interesa que te las pase en un mensaje corto, sin compromiso?\n\n"
-        f"Saludos,\n{REMITENTE}\n{STUDIO} — Desarrollo web\n{EMAIL_REMITENTE}"
+        f"Estuve mirando la web de {nombre} y me gustó mucho su trabajo.\n\n"
+        f"Te escribo porque se me ocurrieron un par de ideas concretas para que "
+        f"generen más consultas directas (mejorando la velocidad, la claridad de la propuesta y la captación de contactos).\n\n"
+        f"¿Te interesaría que te las comparta en un mensaje cortito y sin compromiso?\n\n"
+        f"Un saludo,\n\n"
+        f"{REMITENTE}\n"
+        f"{STUDIO} — Diseño & Desarrollo Web\n"
+        f"{EMAIL_REMITENTE}"
     )
     return asunto, cuerpo
 
@@ -200,22 +203,30 @@ def wa_mensaje(seg, nombre, ciudad, url=""):
     if seg == "SOLO_REDES":
         red = "tu Instagram" if "instagram" in u else "tu Facebook" if "facebook" in u else "tus redes"
         return (
-            f"Hola! Soy {REMITENTE} de {STUDIO} 👋 Vi {red} de {nombre}, "
-            f"se ve el laburo. El tema es que una red social no aparece en Google "
-            f"ni es 100% tuya — una web propia sí, y convierte mejor a quien te "
-            f"busca en {ciudad}. ¿Te muestro cómo quedaría la de {nombre}? Sin compromiso."
+            f"Hola! ¿Cómo va? Soy {REMITENTE} de {STUDIO}. Vi {red} de {nombre} y se ve muy bueno el laburo. "
+            f"Como en {ciudad}, hoy depender solo de redes limita a los clientes que buscan directo en Google. "
+            f"¿Te gustaría ver una propuesta rápida de cómo quedaría una web propia? Sin compromiso."
         )
     return (  # SIN_WEB
-        f"Hola! Soy {REMITENTE} de {STUDIO} 👋 Vi a {nombre} en Google pero no "
-        f"encontré una web propia. Hoy quien te busca en {ciudad} elige a las que "
-        f"aparecen primero con web y obras. Te puedo mostrar en 2 minutos una idea "
-        f"de cómo se vería la de {nombre}, sin compromiso. ¿Te sirve?"
+        f"Hola, ¿cómo estás? Soy {REMITENTE} de {STUDIO}. Busqué a {nombre} en Google pero no "
+        f"encontré su web propia. Para {ciudad}, tener un sitio es clave para convertir las búsquedas en clientes. "
+        f"Te puedo armar en unos minutos una idea/diseño rápido de cómo quedaría, sin compromiso. ¿Te interesaría verlo?"
     )
 
 
 # --------------------------------------------------------------------------- #
-# HTML de WhatsApp
-# --------------------------------------------------------------------------- #
+def link_web_redes(url):
+    u = str(url).strip().lower()
+    if not u or u in ("nan", ""):
+        return None, None
+    href = url
+    if not href.startswith(("http://", "https://")):
+        href = "https://" + href
+    if any(r in u for r in ("instagram.com", "facebook.com", "linktr", "wa.me", "tiktok.com", "twitter.com", "linkedin.com", "youtube.com")):
+        return "Redes", href
+    return "Web", href
+
+
 def generar_html(df, salida_html):
     wa_df = df[df["segmento"].isin(["SIN_WEB", "SOLO_REDES"])].copy()
     wa_df = wa_df[wa_df["_wa"] != ""]  # solo los que tienen teléfono válido
@@ -229,6 +240,10 @@ def generar_html(df, salida_html):
         msg = html.escape(r["_wa_msg"])
         wa = r["_wa"]
         badge = "Sin web" if seg == "SIN_WEB" else "Solo redes"
+
+        lbl, href = link_web_redes(r.get("Website", ""))
+        link_html = f'<a class="link-btn" href="{html.escape(href)}" target="_blank">{lbl} ↗</a>' if href else ''
+
         cards.append(f"""
       <article class="card" data-seg="{seg}" data-name="{nombre.lower()}">
         <div class="head">
@@ -238,10 +253,13 @@ def generar_html(df, salida_html):
         <h2>{nombre}</h2>
         <p class="meta">{ciudad} · {tel}</p>
         <textarea>{msg}</textarea>
-        <a class="send" href="https://wa.me/{wa}?text=" target="_blank"
-           onclick="this.href='https://wa.me/{wa}?text='+encodeURIComponent(this.previousElementSibling.value)">
-           Enviar por WhatsApp
-        </a>
+        <div class="actions">
+          <a class="send" href="https://wa.me/{wa}?text=" target="_blank"
+             onclick="this.href='https://wa.me/{wa}?text='+encodeURIComponent(this.closest('.card').querySelector('textarea').value)">
+             Enviar por WhatsApp
+          </a>
+          {link_html}
+        </div>
       </article>""")
 
     total = len(cards)
@@ -273,8 +291,12 @@ def generar_html(df, salida_html):
   h2{{margin:0;font-size:17px}}
   .meta{{margin:0;color:var(--mut);font-size:13px}}
   textarea{{width:100%;min-height:120px;background:#0e0e0e;border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:10px;font:13px/1.5 inherit;resize:vertical}}
+  .actions{{display:flex;gap:8px;width:100%;align-items:center}}
+  .actions .send{{flex:1;margin:0}}
   .send{{display:block;text-align:center;background:var(--wa);color:#04210f;font-weight:700;text-decoration:none;padding:11px;border-radius:9px;transition:.15s}}
   .send:hover{{filter:brightness(1.08)}}
+  .link-btn{{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:11px 16px;border-radius:9px;font-weight:600;background:var(--line);color:var(--txt);border:1px solid var(--line);font-size:13px;transition:background 0.2s,border-color 0.2s;white-space:nowrap}}
+  .link-btn:hover{{background:#3a3a3a;border-color:var(--mut)}}
 </style></head>
 <body>
   <header>
